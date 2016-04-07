@@ -27,8 +27,17 @@
                 $scope.temp = new Item({rights: 644});
                 $scope.temp.multiple = true;
             }
+            if($scope.$parent.onSelectionChange){
+                var selectedItems = [];
+                if($scope.temps){
+                    for(var i = 0; i < $scope.temps.length; i++){
+                        selectedItems.push($scope.temps[i].model);
+                    }
+                }
+                $scope.$parent.onSelectionChange(selectedItems);
+            }
             $scope.temp.revert();
-        });
+        }, true);
 
         $scope.fileNavigator.onRefresh = function() {
             $scope.temps = [];
