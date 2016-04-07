@@ -39,7 +39,7 @@
                 preview: true,
                 remove: true
             },
-
+            multiSelect: true,
             multipleDownloadFileName: 'angular-filemanager.zip',
             showSizeForDirectories: false,
             useBinarySizePrefixes: false,

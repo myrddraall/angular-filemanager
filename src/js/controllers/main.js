@@ -60,6 +60,12 @@
         $scope.isSelected = function(item) {
             return $scope.temps.indexOf(item) !== -1;
         };
+        
+        function updateSelect(){
+            if(!$scope.config.multiSelect && $scope.temps && $scope.temps.length > 1){
+                $scope.temps.splice(1, $scope.temps.length - 1);
+            }
+        }
 
         $scope.selectOrUnselect = function(item, $event) {
             var indexInTemp = $scope.temps.indexOf(item);
@@ -85,6 +91,7 @@
                         !$scope.isSelected(current) && $scope.temps.push(current);
                         i++;
                     }
+                    updateSelect();
                     return;
                 }
                 if (lastSelected && list.indexOf(lastSelected) > indexInList) {
@@ -94,15 +101,19 @@
                         !$scope.isSelected(current) && $scope.temps.push(current);
                         i--;
                     }
+                    updateSelect();
                     return;
                 }
             }
             if ($event && $event.ctrlKey && !isRightClick) {
                 $scope.isSelected(item) ? $scope.temps.splice(indexInTemp, 1) : $scope.temps.push(item);
+                updateSelect();
                 return;
             }
             $scope.temps = [item];
         };
+
+        
 
         $scope.singleSelection = function() {
             return $scope.temps.length === 1 && $scope.temps[0];
