@@ -5,7 +5,7 @@
         function($scope, $rootScope, $window, $translate, fileManagerConfig, Item, FileNavigator, ApiMiddleware) {
 
         var $storage = $window.localStorage;
-        $scope.config = fileManagerConfig;
+        $scope.config = angular.merge({}, fileManagerConfig, $scope.config || {});
         $scope.reverse = false;
         $scope.predicate = ['model.type', 'model.name'];        
         $scope.order = function(predicate) {
