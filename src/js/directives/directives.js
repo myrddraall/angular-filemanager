@@ -5,7 +5,16 @@
     app.directive('angularFilemanager', ['$parse', 'fileManagerConfig', function($parse, fileManagerConfig) {
         return {
             restrict: 'EA',
-            templateUrl: fileManagerConfig.tplPath + '/main.html'
+            templateUrl: fileManagerConfig.tplPath + '/main.html',
+            scope:{
+                selectedItems: '=?',
+                config: '=?'
+            },
+            link: function(scope, element, attrs) {
+                scope.onSelectionChange = function(data){
+                    scope.selectedItems = data;
+                }
+            }
         };
     }]);
 
