@@ -13,8 +13,8 @@
             $scope.predicate[1] = predicate;
         };
         $scope.query = '';
-        $scope.fileNavigator = new FileNavigator();
-        $scope.apiMiddleware = new ApiMiddleware();
+        $scope.fileNavigator = new FileNavigator($scope.config);
+        $scope.apiMiddleware = new ApiMiddleware($scope.config);
         $scope.uploadFileList = [];
         $scope.viewTemplate = $storage.getItem('viewTemplate') || 'main-table.html';
         $scope.fileList = [];
