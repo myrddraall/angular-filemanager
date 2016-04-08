@@ -5,7 +5,7 @@
 
         var FileNavigator = function(config) {
             this.config = config || fileManagerConfig;
-            this.apiMiddleware = new ApiMiddleware();
+            this.apiMiddleware = new ApiMiddleware(this.config);
             this.requesting = false;
             this.fileList = [];
             this.currentPath = [];
