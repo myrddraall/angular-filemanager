@@ -27,6 +27,10 @@
                 $scope.temp = new Item({rights: 644});
                 $scope.temp.multiple = true;
             }
+            $scope.temp.revert();
+        });
+        
+        $scope.$watch('temps', function() {
             if($scope.$parent.onSelectionChange){
                 var selectedItems = [];
                 if($scope.temps){
@@ -36,7 +40,6 @@
                 }
                 $scope.$parent.onSelectionChange(selectedItems);
             }
-            $scope.temp.revert();
         }, true);
 
         $scope.fileNavigator.onRefresh = function() {
