@@ -39,7 +39,7 @@
             });
         };
 
-        $scope.openNavigator = function(path) {
+        $scope.$parent.openNavigator = function(path) {
             $scope.fileNavigator.currentPath = path;
             $scope.fileNavigator.refresh();
             $scope.modal('selector');
