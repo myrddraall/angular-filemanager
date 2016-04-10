@@ -5,6 +5,8 @@
 
         $scope.reverse = false;
         $scope.predicate = ['model.type', 'model.name'];
+        
+        
         $scope.fileNavigator = new FileNavigator();
         $rootScope.selectedModalPath = [];
 
@@ -40,6 +42,8 @@
         };
 
         $scope.$parent.openNavigator = function(path) {
+            console.log('$rootScope.selectedModalConfig', $rootScope.selectedModalConfig)
+            $scope.fileNavigator.setConfig($rootScope.selectedModalConfig)
             $scope.fileNavigator.currentPath = path;
             $scope.fileNavigator.refresh();
             $scope.modal('selector');

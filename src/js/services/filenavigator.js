@@ -4,8 +4,7 @@
         'apiMiddleware', 'fileManagerConfig', 'item', function (ApiMiddleware, fileManagerConfig, Item) {
 
         var FileNavigator = function(config) {
-            this.config = config || fileManagerConfig;
-            this.apiMiddleware = new ApiMiddleware(this.config);
+            this.setConfig(config || fileManagerConfig);
             this.requesting = false;
             this.fileList = [];
             this.currentPath = [];
@@ -14,6 +13,11 @@
 
             this.onRefresh = function() {};
         };
+
+        FileNavigator.prototype.setConfig = function(cfg) {
+            this.config = cfg;
+            this.apiMiddleware = new ApiMiddleware(cfg);
+        }
 
         FileNavigator.prototype.deferredHandler = function(data, deferred, defaultMsg) {
             if (!data || typeof data !== 'object') {

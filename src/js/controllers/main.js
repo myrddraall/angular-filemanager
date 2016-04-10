@@ -183,6 +183,7 @@
 
         $scope.modalWithPathSelector = function(id) {
             $rootScope.selectedModalPath = $scope.fileNavigator.currentPath;
+            $rootScope.selectedModalConfig = $scope.config;
             return $scope.modal(id);
         };
 
