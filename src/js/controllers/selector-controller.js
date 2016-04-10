@@ -45,7 +45,7 @@
             $scope.modal('selector');
         };
 
-        $rootScope.getSelectedPath = function() {
+        $scope.$parent.getSelectedPath = function() {
             var path = $rootScope.selectedModalPath.filter(Boolean);
             var result = '/' + path.join('/');
             if ($scope.singleSelection() && !$scope.singleSelection().isFolder()) {
