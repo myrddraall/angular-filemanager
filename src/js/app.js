@@ -17,10 +17,9 @@
 
     $(window.document).on('contextmenu', '.main-navigation .table-files tr.item-list:has("td"), .item-list', function(e) {
         var parentOffset = $(e.currentTarget).parents('angular-filemanager').offset();
-        console.log(parentOffset);
         $('#context-menu').hide().css({
-            left: e.pageX,
-            top: e.pageY
+            left: e.pageX - parentOffset.left,
+            top: e.pageY - parentOffset.top
         }).show();
         e.preventDefault();
     });
