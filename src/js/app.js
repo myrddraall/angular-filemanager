@@ -16,6 +16,7 @@
     });
 
     $(window.document).on('contextmenu', '.main-navigation .table-files tr.item-list:has("td"), .item-list', function(e) {
+        var parentOffset = $(e.currentTarget).parents('angular-filemanager').offset();
         $('#context-menu').hide().css({
             left: e.pageX,
             top: e.pageY
